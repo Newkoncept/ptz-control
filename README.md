@@ -11,11 +11,13 @@ Professional PTZ gear is expensive. This project creates a software simulation o
 ## 🔁 Control Modes
 
 ### 🧍 Face Tracker (YOLO-based)
+
 - Runs YOLO object detection (face-based)
 - Zooms into detected face zone
 - Outputs two feeds: preview (with stats), NDI (clean overlay-free)
 
 ### 🖱️ Mouse Tracker
+
 - Manual camera simulation
 - Mouse pointer acts as camera target
 - Smooth zoom/pan via OpenCV
@@ -39,8 +41,92 @@ Professional PTZ gear is expensive. This project creates a software simulation o
 
 ---
 
-## 🛠️ Stack
+## 🚀 How to Run the Face Tracking Module
 
-- Python, OpenCV, NDI Tools
-- YOLO (face detection)
-- Targeted for live streaming environments
+### 1. 📥 Install Python
+
+Download Python 3.8 or later from:  
+https://www.python.org/downloads/
+
+### 2. 📦 Clone the Repository
+
+```
+git clone https://github.com/Newkoncept/ptz-control.git
+cd ptz-control
+```
+
+Or download the ZIP and extract it.
+
+### 3. 🧪 Set Up a Virtual Environment
+
+```
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+
+### 4. 📚 Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
+Make sure to install the [NDI runtime](https://www.ndi.tv/tools/) for network video output support.
+
+### 5. ▶️ Run the Application
+
+```
+python ptz_tracker.py
+```
+
+---
+
+## 📂 Project Structure
+
+```
+ptz-control/
+├── ptz_tracker.py     # Face-tracking PTZ controller (auto mode)
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🌿 Branch Overview
+
+| Branch Name             | Purpose                             |
+| ----------------------- | ----------------------------------- |
+| `main`                  | Stable, production-ready builds     |
+| `dev_face_tracker`      | Active development of face tracking |
+| `archive_face_tracker`  | Chronological evolution (s1 → s23)  |
+| `archive_mouse_tracker` | Chronological evolution (m1 - m4)   |
+| `dev_mouse_tracker`     | (Planned) manual mode development   |
+
+---
+
+## 🗃️ Archive Note
+
+This project began with a series of iterations (`s1.py` to `s23.py`) developed locally over months. These are preserved in the `archive_face_tracker` branch for documentation and reference. The current face tracker (`ptz_tracker.py`) is built from the final stable iteration.
+
+---
+
+## 🧩 Dependencies
+
+Minimum required packages:
+
+```
+opencv-python
+ultralytics
+ndi-python
+torch
+torchvision
+```
+
+---
+
+## 🙏 Acknowledgements
+
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+- [NewTek NDI Tools](https://www.ndi.tv/tools/)
